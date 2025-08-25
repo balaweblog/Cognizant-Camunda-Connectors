@@ -114,7 +114,7 @@ public class AWSS3Connector implements CoreOutboundConnector {
 	}
 
 	// getObject -only Object Reference AWS S3 Operation
-	private Object getObject(ProducerTemplate producerTemplate, ConnectorInput input) {
+	private Object getObject(ProducerTemplate producerTemplates, ConnectorInput input) {
 		Message message = producerTemplate
 				.send(getRouteConstant(input.getInData().getAwsS3Operation()), (Exchange exchange) -> {
 					exchange.getIn().setHeader(AWS2S3Constants.KEY, input.getInData().getKey());
